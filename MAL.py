@@ -1,14 +1,9 @@
 import requests
-import csv
 from bs4 import BeautifulSoup
 
 def float_or_na(value):
     return float(value if value != 'N/A' else 'nan')
 
-
-csv_file = open('mal_scrape.csv', 'w')
-csv_writer = csv.writer(csv_file)
-csv_writer.writerow(['YEAR','SEASON','TYPE','TITLE','SCORE'])
 
 seasons = ['winter','spring','summer','fall']
 for i in range(2017, 2019):
@@ -32,7 +27,3 @@ for i in range(2017, 2019):
                         ' | Score: ' +
                         str(score)
                     )
-                csv_writer.writerow(str(i)+","+s+","+typeA+","+title+","+str(score))
-
-
-csv_file.close()
