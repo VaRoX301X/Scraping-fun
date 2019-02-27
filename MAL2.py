@@ -21,8 +21,5 @@ if UserFound != None:
     print('Anime Stats:')
     print('[Watching] ' + profileAnimeStats[0].text + ' [Completed] ' + profileAnimeStats[1].text + ' [On hold] ' + profileAnimeStats[2].text + ' [Dropped] ' + profileAnimeStats[3].text + ' [Plan To Watch] ' + profileAnimeStats[4].text)
     print('[Total Entries] ' + profileAnimeEpStats[0].text + ' [Rewatched] ' + profileAnimeEpStats[1].text + ' [Total Episodes] ' + profileAnimeEpStats[2].text)
-    # All anime
-    html = requests.get('https://myanimelist.net/profile/'+profile+'?status=7')
-    MAL2Soup = BeautifulSoup(html.text, 'lxml')
-    animes = MAL2Soup.findAll('tbody', class_='list-item')
+    
 else: print('User not found')
