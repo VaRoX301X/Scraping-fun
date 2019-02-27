@@ -1,12 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
+import datetime
+
 
 def float_or_na(value):
     return float(value if value != 'N/A' else 'nan')
 
 
 seasons = ['winter','spring','summer','fall']
-for i in range(2017, 2019):
+year = datetime.datetime.today().year
+for i in range(2017, (year+1)):
     for s in seasons:
         print('------' + s.upper() + '-' + str(i) + '------')
         html = requests.get('https://myanimelist.net/anime/season/'+ str(i) +'/' + s )
